@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boatsmall.png-60cd3a18d1641be93560a961eac987e0.stex"
+path="res://.import/boatsmall.png-94043549211ca8d8322d9182d738f646.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://boatsmall.png"
-dest_files=[ "res://.import/boatsmall.png-60cd3a18d1641be93560a961eac987e0.stex" ]
+source_file="res://assets/boatsmall.png"
+dest_files=[ "res://.import/boatsmall.png-94043549211ca8d8322d9182d738f646.stex" ]
 
 [params]
 
