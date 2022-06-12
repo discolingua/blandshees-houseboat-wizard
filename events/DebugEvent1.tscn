@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://events/DebugEvent1.gd" type="Script" id=1]
+
+[node name="EventBox" type="Control"]
+margin_right = 318.0
+margin_bottom = 241.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shadeBKG" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 240.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialogBKG" type="ColorRect" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 300.0
+margin_bottom = 220.0
+color = Color( 0.298039, 0.290196, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainText" type="Label" parent="."]
+margin_left = 53.0
+margin_top = 34.0
+margin_right = 273.0
+margin_bottom = 107.0
+text = "A bird lands on your boat. \"Would you like a gem?\" it asks, in perfectly enunciated English."
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" type="Button" parent="."]
+margin_left = 60.0
+margin_top = 150.0
+margin_right = 130.0
+margin_bottom = 206.0
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 150.0
+margin_right = 250.0
+margin_bottom = 206.0
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EndButton" type="Button" parent="."]
+visible = false
+margin_left = 126.0
+margin_top = 148.0
+margin_right = 195.0
+margin_bottom = 206.0
+grow_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="NoButton" to="." method="_on_NoButton_pressed"]
+[connection signal="pressed" from="EndButton" to="." method="_on_EndButton_pressed"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tempwave.png-0dc7a5dface05254ddddc47d8664f7d7.stex"
+path="res://.import/gemBlue.png-8f910b8af9b6b9cd396fdb9e4f422ccf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tempwave.png"
-dest_files=[ "res://.import/tempwave.png-0dc7a5dface05254ddddc47d8664f7d7.stex" ]
+source_file="res://assets/gemBlue.png"
+dest_files=[ "res://.import/gemBlue.png-8f910b8af9b6b9cd396fdb9e4f422ccf.stex" ]
 
 [params]
 

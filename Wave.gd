@@ -7,6 +7,7 @@ extends Area2D
 var recede = false
 var x = 0
 var alpha = 0
+export var waveSpeed = .2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +31,7 @@ func _process(delta):
 			alpha = alpha+.01
 	
 	modulate.a = alpha
-	position.x = position.x +.2
+	position.x = position.x + waveSpeed
 	
 	if alpha >= 1:
 		recede = true

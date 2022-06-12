@@ -1,0 +1,50 @@
+[gd_scene format=2]
+
+[node name="EventBox" type="Control"]
+visible = false
+margin_right = 318.0
+margin_bottom = 241.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shadeBKG" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 240.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialogBKG" type="ColorRect" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 300.0
+margin_bottom = 220.0
+color = Color( 0.298039, 0.290196, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainText" type="Label" parent="."]
+margin_left = 53.0
+margin_top = 34.0
+margin_right = 273.0
+margin_bottom = 107.0
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 60.0
+margin_top = 150.0
+margin_right = 130.0
+margin_bottom = 206.0
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 180.0
+margin_top = 150.0
+margin_right = 250.0
+margin_bottom = 206.0
