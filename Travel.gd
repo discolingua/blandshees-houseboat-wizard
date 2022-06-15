@@ -55,10 +55,18 @@ func _on_EventTimer_timeout():
 	debugRandomEvent()
 
 func debugRandomEvent():
-	var EventScene : PackedScene = load("res://events/DebugEvent1.tscn")
+	#choose event
+	randomize()
+	var numEvents = 2
+	randi()%numEvents+1
+	var sceneBuild = "res://events/DebugEvent"+ str(randi()%numEvents+1) +".tscn"
+	#var sceneBuild = "res://events/DebugEvent1.tscn"
+	#real event logic will replace prev line eventually
+	
+	#get event
+	var EventScene : PackedScene = load(str(sceneBuild))
 	var eventInst = EventScene.instance()
-	var root = get_tree().get_root()
-	root.add_child(eventInst)
+	add_child(eventInst)
 
 func _on_event_end():
 	print("_on_event_end triggered")
