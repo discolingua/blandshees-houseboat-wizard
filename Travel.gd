@@ -1,11 +1,16 @@
+class_name Travel
 extends Node2D
 
 
 # Declare member variables here. Examples:
 const WaveScene : PackedScene = preload("res://Wave.tscn")
-var boatAnchored = false
-export var debugDiamond = 5 setget set_DD
 
+export var debugDiamond : float = 5.0 setget set_DD
+
+onready var boatAnchored : bool = false
+
+
+# setter function
 func set_DD(new_DD):
 	debugDiamond = new_DD
 	$UI/DebugDia/DebugDiaLabel.text = ": "  + str(debugDiamond)
@@ -26,11 +31,11 @@ func _ready():
 func _on_Anchor_pressed():
 	if boatAnchored:
 		#$EventTimer.set_paused(false)
-		$EventTimer.paused = false 
+		$EventTimer.paused = false
 		boatAnchored = false
 		$TravelParallax.currScrollSpeed = $TravelParallax.baseScrollSpeed
 		print("unanchor")
-	else: 
+	else:
 		boatAnchored = true
 		$EventTimer.paused = true
 		$TravelParallax.currScrollSpeed = 0
@@ -40,16 +45,20 @@ func fullPause():
 	$EventTimer.paused = true
 	$WaveTimer.paused = true
 	$TravelParallax.currScrollSpeed = 0
-	
+
 func fullUnpause():
 	$EventTimer.paused = false
 	$WaveTimer.paused = false
 	$TravelParallax.currScrollSpeed = $TravelParallax.baseScrollSpeed
 
+
+# event handler to spawn new waves in the water
 func _on_WaveTimer_timeout():
 	var waveInst = WaveScene.instance()
 	add_child(waveInst)
 
+
+# handler to give the player a periodic game event
 func _on_EventTimer_timeout():
 	fullPause()
 	debugRandomEvent()
@@ -62,7 +71,7 @@ func debugRandomEvent():
 	var sceneBuild = "res://events/DebugEvent"+ str(randi()%numEvents+1) +".tscn"
 	#var sceneBuild = "res://events/DebugEvent1.tscn"
 	#real event logic will replace prev line eventually
-	
+
 	#get event
 	var EventScene : PackedScene = load(str(sceneBuild))
 	var eventInst = EventScene.instance()
