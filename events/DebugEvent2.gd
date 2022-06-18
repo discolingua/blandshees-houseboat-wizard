@@ -1,5 +1,6 @@
 extends Control
 
+enum {BELLY, BACK}
 
 onready var root = get_node("/root/Travel")
 var bet : int
@@ -17,7 +18,10 @@ func _ready():
 	if _error_code != 0:
 		print("Something went wrong with the signal connection: ", _error_code)
 
-	if randi()%2 == 0:
+	var flop = rng.randi_range(0,1)
+	print(flop)
+
+	if flop == BELLY:
 		bellyWin = true
 		landing = "belly"
 	else:
@@ -60,9 +64,9 @@ func _on_BellyButton_pressed():
 	$Buttons/DeclineButton.visible = false
 	$Buttons/EndButton.visible = true
 	if bellyWin:
-		betLose()
-	else:
 		betWin()
+	else:
+		betLose()
 
 
 func _on_BackButton_pressed():
@@ -70,7 +74,7 @@ func _on_BackButton_pressed():
 	$Buttons/BellyButton.visible = false
 	$Buttons/DeclineButton.visible = false
 	$Buttons/EndButton.visible = true
-	if !bellyWin:
+	if bellyWin:
 		betLose()
 	else:
 		betWin()

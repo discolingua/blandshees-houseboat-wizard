@@ -2,13 +2,17 @@ class_name Travel
 extends Node2D
 
 
-# Declare member variables here. Examples:
 const WaveScene : PackedScene = preload("res://Wave.tscn")
 
 export var debugDiamond : float = 5.0 setget set_DD
 
 onready var boatAnchored : bool = false
 
+# declare RNG as a member variable
+# creating an explicit rng object allows more functions / cleaner syntax
+# and lets you save the state of the rng for debug + save game purposes
+
+onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
 
 # setter function
 func set_DD(new_DD):
@@ -18,13 +22,8 @@ func set_DD(new_DD):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
+	rng.randomize()
 	$UI/DebugDia/DebugDiaLabel.text = ": " + str(debugDiamond)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#pass
 
 
 
@@ -65,12 +64,13 @@ func _on_EventTimer_timeout():
 
 func debugRandomEvent():
 	#choose event
-	randomize()
+
 	var numEvents = 2
-	randi()%numEvents+1
-	var sceneBuild = "res://events/DebugEvent"+ str(randi()%numEvents+1) +".tscn"
-	#var sceneBuild = "res://events/DebugEvent1.tscn"
-	#real event logic will replace prev line eventually
+	var thisEvent = rng.randi_range(1, numEvents)
+
+	# build res:// string pointing to the scene for an event number
+	var sceneBuild = "res://events/DebugEvent"+ str(thisEvent) +".tscn"
+
 
 	#get event
 	var EventScene : PackedScene = load(str(sceneBuild))
